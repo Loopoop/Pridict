@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Forward</title>
+    <style type="text/css">
+    body{
+      background-color: #696969;
+    }
+    #he{
+      text-transform: uppercase;
+      text-decoration-line: underline;
+      line-height: 9px;
+      color: #0000cd;
+      transition-duration: 2s;
+    }
+    #he:hover{
+      transform: rotate(360deg);
+      color: red;
+    }
+    #holder{
+      width: 280px;
+      height: 370px;
+      border-radius: 12px;
+      background-color: #e6e6fa;
+      text-align: center;
+      padding-top: 5px;
+      margin: 0 auto;
+      margin-top: 12px;
+      
+    }
+    #calculate{
+      text-transform: uppercase;
+      padding: 7px 15px;
+      font-weight: bold;
+      color: whitesmoke;
+      background-color: blue;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      margin-top: 6px;
+      font-size: 16px;
+      transition-duration: 0.1s;
+    }
+    #calculate:hover{
+      animation: Myanim;
+      animation-duration: 1s;
+      animation-delay: 0.7s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate-reverse;
+    }
+    @keyframes Myanim{
+      25%{
+        transform: translateY(3px);
+      }
+      100%{
+        transform: translateY(-3px);
+      }
+    }
+    hr{
+      height: 3px;
+      margin-top: 10px;
+      background-color: black;
+      border: none;
+    }
+    #result{
+      color: navy;
+      text-transform: uppercase;
+    }
+    #percent{
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 4px;
+      color: red;
+    }
+    input{
+      color: black;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      
+    }
+    input::placeholder{
+      color: blue;
+      text-transform: capitalize;
+    }
+    input::focus{
+      box-shadow: 0,0,6px,rgba(0,0,0,0.7);
+    }
+    #input1,#input2 {
+      background-color: #f0ffff;
+      width: max-content;
+      padding: 0px 10px;
+      margin: 6px auto;
+      border-radius: 20px;
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #000;
+    }
+    
+    </style>
+  </head>
+  <body>
+    <div id="holder">
+      <h1 id="he">predictor</h1>
+      <label>YOUR NAME: </label>
+      <div id="input2">
+        <input type="text" id="name" placeholder="name" name="username"/></br></br>
+      </div>
+      <label>WHAT YOU WANT TO ACHIEVE: </label>
+      <div id="input1">
+        <input type="text" name="archivment" placeholder="archivment" id="archivment" /></br></br>
+      </div>
+      <button id="calculate" onclick="calculate()">check</button>
+      <hr>
+      <h3 id="result"></h3>
+      <p id="percent"></p>
+    </div>
+    <script type="text/javascript">
+     document.getElementById("archivment").addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        calculate();
+      }
+     });
+      
+      function calculate(){
+        let username = document.getElementById('name').value;
+        let archivment = document.getElementById('archivment').value;
+        let result = document.getElementById('result');
+        let percent = document.getElementById('percent');
+        let num = Math.floor(Math.random() * 101);
+        if(username != "" && archivment != ""){
+          result.innerText = username + " your possibility of archiving " + archivment + " is";
+          percent.innerText = num.toString() + "%";
+        }
+        
+      }
+    </script>
+  </body>
+</html>
